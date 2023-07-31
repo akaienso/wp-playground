@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Random grayscale gradient and pattern background generation */
+    background: url("img/bg/tiles.png");
+  }
+  
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1480px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    color: #fff; /* Set the default text color */
+    font-family: "Roboto Mono", monospace; /* Apply the "Roboto Mono" font */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a subtle drop shadow */
+  }
+  .dacdb-brand {
+    /* Custom font for "DACdb Plus" */
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    color: #11284b;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Add a subtle drop shadow */
+  }
+  .dacdb-brand span {
+    text-transform: uppercase;
+    display: inline-block;
+    color: #92182c;
+  }
+  iframe {
+    width: 1440px;
+    height: 900px;
+    border: none;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+    cursor: pointer;
+  }
+  

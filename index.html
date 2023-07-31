@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WordPress Playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- DACdb Logos and trademarks use "Lato Book 700" -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+    <!-- General text and headlines use "Roboto Mono" -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="content-container">
+        <h1><span class="dacdb-brand">DACdb<span> Plus</span></span> Plugin Playground</h1>
+        <iframe id="wp-playground" style="width: 1440px; height: 900px"></iframe>
+        <!-- <button onclick="detachPlayground()">Detach Playground</button> -->
+    </div>
+    <script type="module">
+        import {
+            startPlaygroundWeb
+        } from 'https://unpkg.com/@wp-playground/client/index.js';
+        const client = await startPlaygroundWeb({
+            iframe: document.getElementById('wp-playground'),
+            remoteUrl: `https://playground.wordpress.net/remote.html`,
+            blueprint: {
+                landingPage: '/wp-admin/',
+                preferredVersions: {
+                    php: '8.1',
+                    wp: '6.2',
+                },
+                steps: [{
+                    step: 'login',
+                    username: 'admin',
+                    password: 'password',
+                },
+                {
+                    step: 'installPlugin',
+                    pluginZipFile: {
+                        resource: 'wordpress.org/plugins',
+                        slug: 'friends',
+                    },
+                },
+                ],
+            },
+        });
+        const response = await client.run({
+            code: '<?php echo "Hi!"; ',
+        });
+        console.log(response.text);
+    </script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
