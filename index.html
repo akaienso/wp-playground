@@ -8,18 +8,23 @@
     <title>WordPress Playground</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 
+        linked styles, typefaces, and javascript files only apply to webpage wrapping 
+        WordPress Playground. They do not apply to the WordPress Playground Instance 
+        or site content. 
+    -->
     <!-- DACdb Logos and trademarks use "Lato Book 700" -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+
     <!-- General text and headlines use "Roboto Mono" -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
-<body>
+<body lang="en">
     <div class="content-container">
         <h1><span class="dacdb-brand">DACdb<span> Plus</span></span> Plugin Playground</h1>
-        <iframe id="wp-playground" style="width: 1440px; height: 900px"></iframe>
+        <iframe id="wp-playground"></iframe>
         <!-- <button onclick="detachPlayground()">Detach Playground</button> -->
     </div>
     <script type="module">
@@ -44,9 +49,37 @@
                     step: 'installPlugin',
                     pluginZipFile: {
                         resource: 'wordpress.org/plugins',
+                        slug: 'jetpack',
+                    },
+                },
+                {
+                    step: 'installPlugin',
+                    pluginZipFile: {
+                        resource: 'wordpress.org/plugins',
+                        slug: 'create-block-theme',
+                    },
+                },
+                {
+                    step: 'installPlugin',
+                    pluginZipFile: {
+                        resource: 'wordpress.org/plugins',
+                        slug: 'gutenberg',
+                    },
+                },
+                {
+                    step: 'installPlugin',
+                    pluginZipFile: {
+                        resource: 'wordpress.org/plugins',
                         slug: 'friends',
                     },
                 },
+                {
+                    "step": "installPlugin",
+                    "pluginZipFile": {
+                        "resource": "url",
+                        "url": "https://wordpress.dacdb.com/plugins/dacdbplus/dacdbplus.zip"
+                    }
+                }
                 ],
             },
         });
