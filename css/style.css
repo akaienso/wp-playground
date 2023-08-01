@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url("/img/bg/tiles.png");
+    background: url("../img/bg/tiles.png");
   }
   
   .content-container {
