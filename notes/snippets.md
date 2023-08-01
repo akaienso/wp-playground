@@ -1,3 +1,7 @@
+## External Plugin Step
+
+Add a GitHub-released or direct-download zipfile plugin (Non-WP Core)
+
 ```json
 {
     "step": "installPlugin",
