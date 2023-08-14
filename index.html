@@ -13,7 +13,7 @@
         WordPress Playground. They do not apply to the WordPress Playground Instance 
         or site content. 
     -->
-    
+
     <!-- General text and headlines use "Roboto Mono" -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="css/style.css">
@@ -33,39 +33,65 @@
             iframe: document.getElementById('wp-playground'),
             remoteUrl: `https://playground.wordpress.net/remote.html`,
             blueprint: {
-                landingPage: '/wp-admin/',
-                preferredVersions: {
-                    php: '8.1',
-                    wp: '6.2',
+                "landingPage": "/wp-admin/",
+                "preferredVersions": {
+                    "php": "8.1",
+                    "wp": "6.2.2"
                 },
-                steps: [{
-                    step: 'login',
-                    username: 'admin',
-                    password: 'password',
-                },
-                {
-                    step: 'installPlugin',
-                    pluginZipFile: {
-                        resource: 'wordpress.org/plugins',
-                        slug: 'jetpack',
+                "steps": [
+                    {
+                        "step": "setSiteOptions",
+                        "options": {
+                            "blogname": "DACdbPlus WordPress Playground",
+                            "blogdescription": "Get to know our plugin in a safe environment."
+                        }
                     },
-                },
-                {
-                    step: 'installPlugin',
-                    pluginZipFile: {
-                        resource: 'wordpress.org/plugins',
-                        slug: 'create-block-theme',
+                    {
+                        "step": "login",
+                        "username": "rmoore",
+                        "password": "H22o2dtaW3i6aN^!P*o"
                     },
-                },
-                {
-                    step: 'installPlugin',
-                    pluginZipFile: {
-                        resource: 'wordpress.org/plugins',
-                        slug: 'gutenberg',
+                    {
+                        "step": "installPlugin",
+                        "pluginZipFile": {
+                            "resource": "wordpress.org/plugins",
+                            "slug": "jetpack"
+                        }
                     },
-                }
-                ],
-            },
+                    {
+                        "step": "installPlugin",
+                        "pluginZipFile": {
+                            "resource": "wordpress.org/plugins",
+                            "slug": "create-block-theme"
+                        }
+                    },
+                    {
+                        "step": "installPlugin",
+                        "pluginZipFile": {
+                            "resource": "wordpress.org/plugins",
+                            "slug": "gutenberg"
+                        }
+                    },
+                    {
+                        "step": "importFile",
+                        "file": {
+                            "resource": "url",
+                            "url": "https://plus.dacdbdev.com/dacdbpluswordpressplugin.wordpress.2023-08-08.000.xml"
+                        }
+                    },
+                    {
+                        "step": "defineSiteUrl",
+                        "siteUrl": "https://playground.dacdbplus.com"
+                    },
+                    {
+                        "step": "defineWpConfigConsts",
+                        "consts": {
+                            "WP_DEBUG": true
+                        },
+                        "virtualize": true
+                    }
+                ]
+            }
         });
         const response = await client.run({
             code: '<?php echo "Hi!"; ',
